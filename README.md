@@ -18,6 +18,6 @@ This approach adheres to Firebase’s recommended practices and provides a clear
 
 * Navigate to the "Authentication" section in your Firebase console.
 * Under the "Sign-in method" tab, enable the following providers:
-** Email/Password: Toggle this on.
-** Google: Enable this and configure the necessary fields like the project’s OAuth client ID and secret.
-** GitHub: Enable this, and you’ll need to provide the OAuth client ID and secret from GitHub, which can be obtained from the GitHub Developer Settings.
+  * Email/Password: Toggle this on.
+  * Google: Enable this and configure the necessary fields like the project’s OAuth client ID and secret.
+  * GitHub: Enable this, and you’ll need to provide the OAuth client ID and secret from GitHub, which can be obtained from the GitHub Developer Settings.
