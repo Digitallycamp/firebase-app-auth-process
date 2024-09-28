@@ -14,6 +14,7 @@ This approach adheres to Firebase’s recommended practices and provides a clear
 
 * Go to the Firebase Console.
 * Click on "Add Project" and follow the steps to create a new project.
+  
 [2] Enable Authentication Providers:
 
 * Navigate to the "Authentication" section in your Firebase console.
