@@ -10,7 +10,7 @@ Route Setup: Use react-router-dom to set up navigation and protect specific page
 This approach adheres to Firebase’s recommended practices and provides a clear, scalable structure for handling multiple authentication methods in a React application.
 
 ## Step 1: Setting Up Firebase
-[1] Create a Firebase Project:
+1. Create a Firebase Project:
 
 * Go to the Firebase Console.
 * Click on "Add Project" and follow the steps to create a new project.
