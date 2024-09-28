@@ -22,3 +22,27 @@ This approach adheres to Firebase’s recommended practices and provides a clear
   * Email/Password: Toggle this on.
   * Google: Enable this and configure the necessary fields like the project’s OAuth client ID and secret.
   * GitHub: Enable this, and you’ll need to provide the OAuth client ID and secret from GitHub, which can be obtained from the GitHub Developer Settings.
+    
+[3] Add Firebase SDK to Your Project:
+
+* Install Firebase in your React project:
+`npm install firebase`
+* Set up your Firebase configuration in a `src/firebase/config.js` file:
+
+`
+// src/firebase/config.js
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID",
+};
+
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+`
