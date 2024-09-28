@@ -29,7 +29,7 @@ This approach adheres to Firebase’s recommended practices and provides a clear
 `npm install firebase`
 * Set up your Firebase configuration in a `src/firebase/config.js` file:
 
-`
+``js
 // src/firebase/config.js
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
@@ -45,11 +45,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-`
+``
 # Step 2: Set Up Authentication in React
 [1] <strong>Create an Authentication Context</strong>: We'll create a context to manage user authentication state and provide methods for signing in with different providers.
 
-`
+``js
 // AuthContext.js
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from './firebase'; // Import auth from firebase.js
@@ -109,4 +109,4 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
-`
+``
