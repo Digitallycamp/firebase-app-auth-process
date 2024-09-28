@@ -14,3 +14,10 @@ This approach adheres to Firebase’s recommended practices and provides a clear
 
 * Go to the Firebase Console.
 * Click on "Add Project" and follow the steps to create a new project.
+[2] Enable Authentication Providers:
+
+* Navigate to the "Authentication" section in your Firebase console.
+* Under the "Sign-in method" tab, enable the following providers:
+** Email/Password: Toggle this on.
+** Google: Enable this and configure the necessary fields like the project’s OAuth client ID and secret.
+** GitHub: Enable this, and you’ll need to provide the OAuth client ID and secret from GitHub, which can be obtained from the GitHub Developer Settings.
