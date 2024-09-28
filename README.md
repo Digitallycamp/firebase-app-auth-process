@@ -46,3 +46,67 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 `
+# Step 2: Set Up Authentication in React
+[1] <strong>Create an Authentication Context</strong>: We'll create a context to manage user authentication state and provide methods for signing in with different providers.
+
+`
+// AuthContext.js
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { auth } from './firebase'; // Import auth from firebase.js
+import {
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+  GoogleAuthProvider,
+  GithubAuthProvider,
+  signInWithPopup,
+} from 'firebase/auth';
+
+const AuthContext = createContext();
+
+export const AuthProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+      setLoading(false);
+    });
+
+    return unsubscribe;
+  }, []);
+
+  // Sign in with email and password
+  const loginWithEmail = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  // Sign in with Google
+  const loginWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
+
+  // Sign in with GitHub
+  const loginWithGithub = () => {
+    const provider = new GithubAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
+
+  // Sign out
+  const logout = () => {
+    return signOut(auth);
+  };
+
+  return (
+    <AuthContext.Provider
+      value={{ currentUser, loginWithEmail, loginWithGoogle, loginWithGithub, logout }}
+    >
+      {!loading && children}
+    </AuthContext.Provider>
+  );
+};
+
+export const useAuth = () => useContext(AuthContext);
+`
