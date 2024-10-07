@@ -259,7 +259,7 @@ const SignUp = () => {
 			});
 
 			// Send email verification
-			userCredential.user.sendEmailVerification();
+			await sendEmailVerification(userCredential.user);
 
 			// Navigate to dashboard or any other page after sign-up
 			navigate('/dashboard');
